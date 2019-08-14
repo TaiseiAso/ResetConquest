@@ -20,7 +20,7 @@ public class Title : MonoBehaviour {
     public int _scene;
     public int _arrowPos;
 
-    private double _waitTime;
+    private float _waitTime;
 
     void Awake() {
         _titleTextObject.SetActive (true);
@@ -29,12 +29,12 @@ public class Title : MonoBehaviour {
         _scene = SceneMode.TITLE;
         _arrowPos = SelectMode.NEW_GAME;
 
-        _waitTime = 0;
+        _waitTime = 0.0f;
     }
 
     void Update() {
-        if (_waitTime > 0) _waitTime -= Time.deltaTime;
-        if (_waitTime <= 0) {
+        if (_waitTime > 0.0f) _waitTime -= Time.deltaTime;
+        if (_waitTime <= 0.0f) {
             switch (_scene) {
                 case SceneMode.TITLE:
                     if (Input.anyKeyDown) {
@@ -50,7 +50,7 @@ public class Title : MonoBehaviour {
                         switch (_arrowPos) {
                             case SelectMode.NEW_GAME:
                                 _scene = SceneMode.NEW_GAME_WAIT;
-                                _waitTime = 2.0;
+                                _waitTime = 2.0f;
                                 break;
                             case SelectMode.LOAD_GAME:
                                 FadeManager._instance.Fade(FadeMode.LOAD_SCENE,
@@ -72,7 +72,7 @@ public class Title : MonoBehaviour {
                                 break;
                             case SelectMode.EXIT:
                                 _scene = SceneMode.EXIT_WAIT;
-                                _waitTime = 0.6;
+                                _waitTime = 0.6f;
                                 break;
                         }
                         PlaySelectAnimation();

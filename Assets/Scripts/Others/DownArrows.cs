@@ -10,24 +10,24 @@ public class DownArrows : MonoBehaviour {
         GameObject blueArrowPrefab = (GameObject)Resources.Load("Prefabs/Others/BlueArrow");
 
         for (int i = 0; i < 9; i ++) {
-            GameObject blueArrow = (GameObject)Instantiate(blueArrowPrefab);
-            UpDown arrow = blueArrow.GetComponent<UpDown>();
+            GameObject blueArrowObject = (GameObject)Instantiate(blueArrowPrefab);
+            UpDown arrow = blueArrowObject.GetComponent<UpDown>();
             arrow.Set(i*100 - 50, 50, 100, i*1.2, 10.8);
-            blueArrow.transform.SetParent(transform);
+            blueArrowObject.transform.SetParent(transform);
         }
 
         for (int i = 0; i < 8; i ++) {
-            GameObject grayArrow = (GameObject)Instantiate(grayArrowPrefab);
-            UpDown arrow = grayArrow.GetComponent<UpDown>();
+            GameObject grayArrowObject = (GameObject)Instantiate(grayArrowPrefab);
+            UpDown arrow = grayArrowObject.GetComponent<UpDown>();
             arrow.Set(i*100, 50, 100, i*0.8, 6.4);
-            grayArrow.transform.SetParent(transform);
+            grayArrowObject.transform.SetParent(transform);
         }
 
         for (int i = 0; i < 9; i ++) {
-            GameObject blackArrow = (GameObject)Instantiate(blackArrowPrefab);
-            UpDown arrow = blackArrow.GetComponent<UpDown>();
+            GameObject blackArrowObject = (GameObject)Instantiate(blackArrowPrefab);
+            UpDown arrow = blackArrowObject.GetComponent<UpDown>();
             arrow.Set(i*100 - 50, 50, 100, i*0.4, 3.6);
-            blackArrow.transform.SetParent(transform);
+            blackArrowObject.transform.SetParent(transform);
         }
     }
 }
